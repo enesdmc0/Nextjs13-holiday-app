@@ -29,7 +29,7 @@ export default async function RootLayout({children,}: { children: React.ReactNod
               <ElementModal/>
               <Navbar user={user}/>
           </MountedClient>
-          <main>{children}</main>
+          <main className="h-full bg-gradient-to-r from-[#BED1Fc] to-[#FFF7FA]">{children}</main>
       </AtomProvider>
       </body>
     </html>

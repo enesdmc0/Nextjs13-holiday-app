@@ -17,7 +17,7 @@ const Categories = () => {
     const searchParams = useSearchParams()
     const urlItem = searchParams?.get("category");
     return (
-        <div className="flex items-center gap-7">
+        <div className="flex items-center md:gap-5 gap-2">
             {categories?.map(item => (
                 <CategoriesItem key={item.name} name={item.name} icon={item.icon} selected={urlItem === item.name} />
             ))}

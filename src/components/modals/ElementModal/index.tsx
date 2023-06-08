@@ -75,44 +75,48 @@ const ElementModal = () => {
     }
 
     const bodyElement = (
-        <>
-            <div className="flex items-center gap-10 mb-5">
+        <div className="flex flex-col gap-5 mt-5">
+            <div className="flex items-center gap-3 border-b pb-2">
                 {
                     categories.map((cat, i) => (
                         <CategorySelect
                             key={i}
                             name={cat.name}
                             icon={cat.icon}
-                            onClick={(category) => {customSetValue("category", category)}}
+                            onClick={(category) => {
+                                customSetValue("category", category)
+                            }}
                             selected={category == cat.name}
                         />
                     ))
                 }
             </div>
-            <div className="mb-5">
-                <CountrySelect
-                    value={location}
-                    onChange={(value) => {customSetValue("location", value)}}
-                />
+            <CountrySelect
+                value={location}
+                onChange={(value) => {
+                    customSetValue("location", value)
+                }}
+            />
+            <CounterSelect
+                title="Stok sayısı"
+                description="Stok sayısı miktarı (des)"
+                value={roomCount}
+                onChange={value => {
+                    customSetValue("roomCount", value)
+                }}
+            />
+            <input multiple type="file" name="file" onChange={val => imageSelectFunc(val)}/>
+            <div className="h-[200px] w-1/2 mx-auto mb-5 relative">
+                <Image src={imageSrc || "https://thumb.silhouette-ac.com/t/b2/b2dd5190896b01ced813918773c18b30_t.jpeg"}
+                       alt="" fill className="object-cover"/>
             </div>
-            <div className="mb-5">
-                <CounterSelect
-                    title="Stok sayısı"
-                    description="Stok sayısı miktarı (des)"
-                    value={roomCount}
-                    onChange={value => {customSetValue("roomCount", value)}}
-                />
-            </div>
-            <input className="mb-5" multiple type="file" name="file" onChange={val => imageSelectFunc(val)}/>
-            <div className="mb-5">
-                <Image src={imageSrc || "https://thumb.silhouette-ac.com/t/b2/b2dd5190896b01ced813918773c18b30_t.jpeg"} alt="" width={200} height={200}/>
-            </div>
-        </>
+        </div>
     )
 
     return (
         <div>
-            <Modal bodyElement={bodyElement} isOpen onClose={closeModal} onSubmit={handleSubmit(onSubmit)} btnLabel="Create" title="Create Listing"/>
+            <Modal bodyElement={bodyElement} isOpen onClose={closeModal} onSubmit={handleSubmit(onSubmit)}
+                   btnLabel="Create" title="Create Listing"/>
         </div>
     );
 };

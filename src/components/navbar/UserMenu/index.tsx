@@ -23,9 +23,9 @@ const UserMenu = ({user}: {user: User | any | undefined}) => {
         setElementModal(prev => !prev)
     }
     return (
-        <div onClick={() => setOpenMenu(prev => !prev)} className="relative gap-3  flex items-center cursor-pointer">
-            <div className="text-sm text-gray-500">{user?.name}</div>
-            <GiHamburgerMenu size={25}/>
+        <div onClick={() => setOpenMenu(prev => !prev)} className="relative gap-3 p-1 md:p-3 bg-white rounded-md flex items-center cursor-pointer">
+            <div className="text-sm font-bold text-purple-950 hidden md:block">{user?.name}</div>
+            <GiHamburgerMenu className="text-purple-950 hidden md:block" size={25}/>
             <Image
                 src={user?.image || "https://w7.pngwing.com/pngs/340/956/png-transparent-profile-user-icon-computer-icons-user-profile-head-ico-miscellaneous-black-desktop-wallpaper.png"}
                 alt="User"
@@ -34,7 +34,7 @@ const UserMenu = ({user}: {user: User | any | undefined}) => {
                 className="object-cover rounded-full"
             />
             {openMenu && (
-                <div className="absolute bg-white shadow-lg shadow-gray-500 w-[150px] top-16 right-0">
+                <div className="absolute z-50 bg-white shadow-lg shadow-gray-500 w-[150px] top-16 right-0 rounded-md overflow-hidden">
                     {user ? (
                         <>
                             <UserMenuItem

@@ -20,21 +20,19 @@ const options: any = getCountries.map(country => ({value: country.name, label: c
 
 const CountrySelect: React.FC<CountrySelectProps> = ({onChange, value}) => {
     return (
-        <div>
-            <Select
-                placeholder="Select Country"
-                options={options}
-                isClearable
-                value={value}
-                onChange={value => onChange(value)}
-                isSearchable
-                formatOptionLabel={(val: any) => (
-                    <div className="flex items-center gap-2">
-                        {val.flag} {val.value}
-                    </div>
-                )}
-            />
-        </div>
+        <Select
+            placeholder="Select Country"
+            options={options}
+            isClearable
+            value={value}
+            onChange={value => onChange(value)}
+            isSearchable
+            formatOptionLabel={(val: any) => (
+                <div className="flex items-center gap-2">
+                    {val.flag} {val.value}
+                </div>
+            )}
+        />
     );
 };
 
