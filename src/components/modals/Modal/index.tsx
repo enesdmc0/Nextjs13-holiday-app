@@ -31,10 +31,12 @@ const Index: React.FC<ModalProps> = ({isOpen, bodyElement, footerElement, btnLab
                         <GrClose size={25} className="cursor-pointer"/>
                     </div>
                 </div>
+                <div>{bodyElement}</div>
                 <Button
                     onSubmit={submitFunc}
                     btnLabel={btnLabel}
                 />
+                <div>{footerElement}</div>
             </div>
         </div>
     );

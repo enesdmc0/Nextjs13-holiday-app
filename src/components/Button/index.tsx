@@ -10,9 +10,10 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({btnLabel, onSubmit, icon: Icon, outline}) => {
-    return <button onClick={onSubmit}
-                   className={`w-full flex items-center justify-center gap-2 rounded-md py-2 text-xl ${outline ? "border border-black" : "bg-black text-white"}`}
-    >{btnLabel}</button>
+    return <button onClick={onSubmit} className={`w-full flex items-center justify-center gap-5 rounded-md py-2 text-xl ${outline ? "border border-black" : "bg-black text-white"}`}>
+        {Icon && <Icon size={20}/>}
+        {btnLabel}
+    </button>
 };
 
 export default Button;
