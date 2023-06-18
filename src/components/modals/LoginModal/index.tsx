@@ -47,7 +47,7 @@ const LoginModal = () => {
     )
 
     const footerElement = (
-        <div className="mt-5">
+        <div className="mt-5 flex flex-col gap-4">
             <Button btnLabel="Google ile giriş yap" onSubmit={() => {signIn("google")}} outline icon={FcGoogle}/>
             <Button btnLabel="Github ile giriş yap" onSubmit={() => {signIn("github")}} outline icon={GrGithub}/>
         </div>
