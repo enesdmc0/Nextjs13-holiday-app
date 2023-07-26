@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import prisma from "@/libs/prismadb"
 
 const Home = async () => {
   const listings = await prisma?.listing.findMany({
